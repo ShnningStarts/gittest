@@ -4,8 +4,8 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="entity.AddressEntity" table="address" schema="ele">
-        <id name="addId" column="add_id"/>
+    <class name="entity.AddressEntity"   table="address" schema="ele">
+        <id name="addId" column="add_id" type="java.lang.Integer" />
         <property name="provice" column="provice"/>
         <property name="addDefinition" column="add_definition"/>
     </class>
