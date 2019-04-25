@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entity.OrdersEntity" table="orders" schema="ele">
+        <id name="ordersId" column="orders_id"/>
+        <property name="fromAdd" column="from_add"/>
+        <property name="destAdd" column="dest_add"/>
+        <property name="createDate" column="create_date"/>
+        <property name="senderName" column="sender_name"/>
+        <property name="reciveName" column="recive_name"/>
+        <property name="senderTele" column="sender_tele"/>
+        <property name="reciveTele" column="recive_tele"/>
+        <property name="arriveDate" column="arrive_date"/>
+    </class>
+</hibernate-mapping>
