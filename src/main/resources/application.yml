@@ -1,0 +1,22 @@
+server:
+  address: localhost
+  port: 8080
+  tomcat:
+    uri-encoding: utf-8
+spring:
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://localhost:3306/ele?useUnicode=true&characterEncoding=utf8
+      username: root
+      password: yangbiao
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+
+  redis:
+    host: localhost
+    port: 6379
