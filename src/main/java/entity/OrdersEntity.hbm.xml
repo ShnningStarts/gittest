@@ -14,5 +14,7 @@
         <property name="senderTele" column="sender_tele"/>
         <property name="reciveTele" column="recive_tele"/>
         <property name="arriveDate" column="arrive_date"/>
+        <property name=""
+        <many-to-one name=""></many-to-one>
     </class>
 </hibernate-mapping>

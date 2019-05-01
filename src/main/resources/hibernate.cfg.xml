@@ -1,29 +1,12 @@
-<?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE hibernate-configuration PUBLIC
-    "-//Hibernate/Hibernate Configuration DTD//EN"
-    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-  <session-factory>
-    <property name="connection.url">jdbc:mysql://localhost:3306/ele</property>
-    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-    <mapping resource="entity/AddressEntity.hbm.xml"/>
-    <mapping class="entity.AddressEntity"/>
-    <mapping resource="entity/AdminsEntity.hbm.xml"/>
-    <mapping class="entity.AdminsEntity"/>
-    <mapping resource="entity/CategoryEntity.hbm.xml"/>
-    <mapping class="entity.CategoryEntity"/>
-    <mapping resource="entity/GoodsEntity.hbm.xml"/>
-    <mapping class="entity.GoodsEntity"/>
-    <mapping resource="entity/MailEntity.hbm.xml"/>
-    <mapping class="entity.MailEntity"/>
-    <mapping resource="entity/OrdersEntity.hbm.xml"/>
-    <mapping class="entity.OrdersEntity"/>
-    <mapping resource="entity/UserEntity.hbm.xml"/>
-    <mapping class="entity.UserEntity"/>
-    <!-- <property name="connection.username"/> -->
-    <!-- <property name="connection.password"/> -->
-
-    <!-- DB schema will be updated if needed -->
-    <!-- <property name="hbm2ddl.auto">update</property> -->
-  </session-factory>
+    <session-factory>
+    <property name="hibernate.default_schema">elet</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">yangbiao</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+    </session-factory>
 </hibernate-configuration>

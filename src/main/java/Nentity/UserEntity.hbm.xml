@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Nentity.UserEntity" >
+        <meta attribute="class-desciption"> user entity</meta>
+        <meta attribute="class-scope">public</meta>
+        <id name="userId" column="user_id" type="java.lang.Long" length="20">
+            <meta attribute="scope-set">private</meta>
+            <generator class="native"></generator>
+        </id>
+        <property name="userName" type="java.lang.String" >
+            <meta attribute="use-in-tostring">true</meta>
+            <column name="user_name" length="20" not-null="true" unique="true" sql-type="char(20)"></column>
+            <meta attribute="field-description">user name</meta>
+        </property>
+        <property name="userAge" type="java.lang.Integer">
+            <meta attribute="field-description">user age</meta>
+            <meta attribute="use-in-tostring">true</meta>
+            <column name="user_age" not-null="true" sql-type="int" check="user_age<100"></column>
+
+        </property>
+        <property name="userSex" type="java.lang.Boolean">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="field-description">use is male or female</meta>
+            <column name="user_sex" not-null="true" ></column>
+        </property>
+        <property name="userTele" type="java.lang.Integer" >
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="field-description">user tele</meta>
+            <column name="user_tele" sql-type="char(11)" not-null="true" unique="true" length="11" index="IDX_USER_TELE">
+
+            </column>
+        </property>
+        <property name="userCreateTime" type="java.util.Date">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="field-description">create time</meta>
+            <column name="user_create_time" not-null="true" sql-type="timestamp"></column>
+        </property>
+        <property name="userMail" lazy="false" type="java.lang.String">
+            <column name="user_mail" not-null="true" unique="true" sql-type="varchar(30)"></column>
+            <meta attribute="ues-in-tostring">true</meta>
+        </property>
+
+
+    </class>
+</hibernate-mapping>

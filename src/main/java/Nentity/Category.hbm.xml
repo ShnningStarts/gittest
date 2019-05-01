@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Nentity.Categoty">
+        <id name="cateId">
+            <generator class="native"></generator>
+            <column name="cate_id" sql-type="bigint" length="20" not-null="true" index="IDX_CATEGORY_ID"></column>
+        </id>
+        <property name="cateName" not-null="true" unique="true">
+            <column name="cate_name" not-null="true" unique="true" sql-type="varchar(30)"></column>
+            <meta attribute="use-in-tostring"> true</meta>
+
+
+        </property>
+    </class>
+</hibernate-mapping>

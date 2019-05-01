@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+        <project name="Learning Hibernate" default="prepare" basedir="">
+    <property name="source.root" value="src">
+     </property>
+     <property name="class.root" value="classes">
+     </property>
+     <property name="lib.dir" value="lib">
+     </property>
+     <property name="schema" value="schema">
+     </property>
+     <path id="project.class.path">
+     <!-- Include our own classes,of course -->
+     <pathelement location="${class.root}" />
+     <!-- Include jars in the project library directory -->
+    <fileset dir="${lib.dir}">
+     <include name="*.jar" />
+     </fileset>
+     </path>
+     <target name="prepare" description="Sets up build structures">
+     <delete dir="${class.root}">
+     </delete>
+     <mkdir dir="${class.root}" />
+     <copy todir="${class.root}">
+     <fileset dir="${source.root}">
+     <include name="**/*.properties" />
+     <include name="**/*.hbm.xml" />
+     <include name="**/*.cfg.xml" />
+     </fileset>
+     </copy>
+     </target>
+     <!-- hbm2java任务-->
+     <target name="codegen" depends="prepare">
+     <taskdef name="hbm2javaTask" classname="org.hibernate.tool.ant.HibernateToolTask" classpathref="project.class.path" />
+     <hbm2javaTask destdir="${source.root}">
+     <configuration configurationfile="C:\Users\yang\learn\test\src\main\resources\hibernate.cfg.xml" />
+     <hbm2java />
+     </hbm2javaTask>
+     </target>
+     <!--编译Java源文件 -->
+     <target name="compile" depends="codegen" description="Compiles all java classes">
+     <javac srcdir="${source.root}" destdir="${class.root}" debug="on" optimize="off" deprecation="on" includeAntRuntime="false">
+     <classpath refid="project.class.path">
+     </classpath>
+     </javac>
+     </target>
+     <!--hbm2ddl任务-->
+     <target name="schema" depends="compile">
+     <taskdef name="hbm2ddlTask" classname="org.hibernate.tool.ant.HibernateToolTask" classpathref="project.class.path">
+     </taskdef>
+     <hbm2ddlTask destdir="${schema.dir}">
+     <configuration configurationfile="${class.root}/hibernate.cfg.xml" />
+     <hbm2ddl export="true" console="true" create="true" drop="true" />
+     </hbm2ddlTask>
+     </target>
+     </project>

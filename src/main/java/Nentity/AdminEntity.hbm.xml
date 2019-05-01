@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Nentity.AdminEntity">
+        <id name="adminId" type="java.lang.Integer" length="20">
+            <column name="admin_id" unique="true" length="20" sql-type="bigint" not-null="true" ></column>
+            <generator class="native"></generator>
+        </id>
+        <property name="adminName" type="java.lang.String">
+            <column name="admin_name" not-null="true" sql-type="varchar(30)" unique="true"></column>
+        </property>
+
+
+    </class>
+</hibernate-mapping>

@@ -1,8 +1,10 @@
 package entity;
 
+import org.springframework.data.domain.Auditable;
+
 import java.util.Date;
 
-public class user extends BaseData{
+public class user extends BaseData implements Auditable {
     private static final long serialVersionUID=1l;
     private Integer userId;
     private String name;
@@ -12,6 +14,7 @@ public class user extends BaseData{
    private String status;
    private String phone;
    private String addId;
+   public AuditLogRecoder(String message,Long enId,Class)
    public user(){
        super();
    }

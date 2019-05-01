@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="hibernate-tools">
+    <CLASSES>
+      <root url="jar://D:/迅雷下载/hibernate-tools.jar/hibernate-tools.jar!/" />
+      <root url="jar://D:/迅雷下载/hibernate3-3.2.4.sp1.jar/hibernate3-3.2.4.sp1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <excluded>
+      <root url="jar://D:/迅雷下载/hibernate-tools.jar/hibernate-tools.jar!/" />
+    </excluded>
+  </library>
+</component>

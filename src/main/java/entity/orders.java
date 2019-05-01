@@ -1,6 +1,7 @@
 package entity;
 
 import java.util.Date;
+import entity.user;
 
 public class orders {
     Long orderId;
@@ -12,11 +13,22 @@ public class orders {
     String reciveName;
     Integer senderTele;
     Integer reciveTele;
+    user cus;
 
-    public  orders(Long id){
+    private   orders(Long id){
         this.orderId=id;
     }
+
+    public user getCus() {
+        return cus;
+    }
+
+    public void setCus(user cus) {
+        this.cus = cus;
+    }
+
     public orders(){}
+
     public Date getCreateDate() {
         return createDate;
     }

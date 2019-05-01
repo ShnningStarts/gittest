@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Nentity.GoodsEntity">
+        <id name="goodsId" type="java.lang.Integer" length="20">
+            <generator class="native"></generator>
+            <column name="goods_id" sql-type="bigint" length="20" unique="true" not-null="true" index="IDX_GOODS_ID"></column>
+        </id>
+        <property name="goodsName" not-null="true" unique="true" >
+            <column name="goods_name" unique="true" not-null="true" sql-type="varchar(30)"></column>
+
+
+        </property>
+        <property name="goodsDesctiption" not-null="true" type="java.lang.String" >
+            <column name="goods_description" unique="false" sql-type="text" not-null="true" ></column>
+            <meta attribute="use-in-tostring">true</meta>
+        </property>
+        <property name="goodsImg" type="java.sql.Blob">
+            <column name="goods_img" not-null="true" sql-type="Blob" ></column>
+
+
+        </property>
+        <property name="userId" not-null="true" type="java.lang.Integer" length="20">
+            <column name="user_id" length="20" not-null="true" unique="true" ></column>
+
+
+        </property>
+        <many-to-one name="users" class="Nentity.User" unique="true"  lazy="false" > </many-to-one>
+
+    </class>
+
+
+
+
+
+</hibernate-mapping>

@@ -5,10 +5,18 @@
 <hibernate-mapping>
 
     <class name="entity.UserEntity" table="user" schema="ele">
+        <meta attribute="extends">AddressEntity</meta>
         <id name="userId" column="user_id"/>
+        <meta attribute="class-desctiption">AddressEntity</meta>
         <property name="name" column="name"/>
+        <meta attribute="field-description">is name</meta>
         <property name="createDate" column="create_date"/>
-        <property name="addId" column="add_id"/>
+        <property name="addId" column="add_id">
+            <column name="add_id" not-null="true" sql-type="bigint">
+
+            </column>
+        </property>
+
         <property name="brithday" column="brithday"/>
         <property name="telephone" column="telephone"/>
         <property name="sex" column="sex"/>

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Nentity.AddressEntity ">
+        <id name="addressId" length="20" type="java.lang.Long">
+            <meta attribute="field-description">address id</meta>
+            <generator class="native"></generator>
+            <column name="address_id" length="20" not-null="true" unique="true" index="INDEX_ADD_ID" sql-type="bigint"></column>
+        </id>
+        <property name="nationAdd" type="java.lang.String">
+            <meta attribute="use-in-tostring">true</meta>
+            <column name="nation_add" sql-type="char(50)" not-null="true" ></column>
+        </property>
+        <property name="proviceAdd" type="java.lang.String">
+            <meta attribute="use-in-tostring">true</meta>
+            <column name="privice_add" not-null="true" sql-type="char(50)" ></column>
+        </property>
+        <property name="cityAdd" type="java.lang.String">
+            <meta attribute="use-in-tostring">true</meta>
+            <column name="city_add" sql-type="char(10)" not-null="true" ></column>
+        </property>
+        <property name="areaAdd" type="java.lang.String">
+            <meta attribute="use-in-tostring">true</meta>
+            <column name="area_add" not-null="true" sql-type="varchar(20)"></column>
+        </property>
+        <property name="detailAdd" type="java.lang.String">
+            <meta attribute="use-in-tostring"></meta>
+            <column name="detail_add" not-null="true" sql-type="text"></column>
+        </property>
+        <property name="userId" type="java.lang.Integer">
+            <column name="user_id" sql-type="bigint" not-null="true" unique="true" ></column>
+        </property>
+        <many-to-one name="User" column="user_id" not-null="true" class="Nentity.User" lazy="false">
+
+        </many-to-one>
+    </class>
+</hibernate-mapping>
