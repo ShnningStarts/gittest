@@ -3,10 +3,15 @@
 <hibernate-configuration>
     <session-factory>
     <property name="hibernate.default_schema">elet</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">yangbiao</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/elet</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <mapping resource="Nentity/AddressEntity.hbm.xml"></mapping>
+        <mapping class="entity.AddressEntity"/>
+        <mapping class="entity.BusinessEntity"/>
+        <mapping class="entity.CategoryEntity"/>
+        <mapping class="entity.GoodsEntity"/>
+        <mapping class="entity.OrdersEntity"/>
+        <mapping class="entity.UserEntity"/>
     </session-factory>
 </hibernate-configuration>

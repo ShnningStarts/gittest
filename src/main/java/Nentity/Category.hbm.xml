@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="Nentity.Categoty">
+    <class name="entity.Categoty">
         <id name="cateId">
             <generator class="native"></generator>
             <column name="cate_id" sql-type="bigint" length="20" not-null="true" index="IDX_CATEGORY_ID"></column>

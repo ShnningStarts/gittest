@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="Nentity.AdminEntity">
+    <class name="entity.AdminEntity">
         <id name="adminId" type="java.lang.Integer" length="20">
             <column name="admin_id" unique="true" length="20" sql-type="bigint" not-null="true" ></column>
             <generator class="native"></generator>

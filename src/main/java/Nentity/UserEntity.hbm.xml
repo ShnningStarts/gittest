@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="Nentity.UserEntity" >
+    <class name="entity.UserEntity" >
         <meta attribute="class-desciption"> user entity</meta>
         <meta attribute="class-scope">public</meta>
         <id name="userId" column="user_id" type="java.lang.Long" length="20">

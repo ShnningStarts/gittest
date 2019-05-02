@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="Nentity.AddressEntity ">
+    <class name="entity.AddressEntity ">
         <id name="addressId" length="20" type="java.lang.Long">
             <meta attribute="field-description">address id</meta>
             <generator class="native"></generator>
@@ -32,7 +32,7 @@
         <property name="userId" type="java.lang.Integer">
             <column name="user_id" sql-type="bigint" not-null="true" unique="true" ></column>
         </property>
-        <many-to-one name="User" column="user_id" not-null="true" class="Nentity.User" lazy="false">
+        <many-to-one name="User" column="user_id" not-null="true" class="entity.User" lazy="false">
 
         </many-to-one>
     </class>

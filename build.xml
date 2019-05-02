@@ -1,55 +1,49 @@
 <?xml version="1.0"?>
-        <project name="Learning Hibernate" default="prepare" basedir="">
-    <property name="source.root" value="src">
-     </property>
-     <property name="class.root" value="classes">
-     </property>
-     <property name="lib.dir" value="lib">
-     </property>
-     <property name="schema" value="schema">
-     </property>
-     <path id="project.class.path">
-     <!-- Include our own classes,of course -->
-     <pathelement location="${class.root}" />
-     <!-- Include jars in the project library directory -->
-    <fileset dir="${lib.dir}">
-     <include name="*.jar" />
-     </fileset>
-     </path>
-     <target name="prepare" description="Sets up build structures">
-     <delete dir="${class.root}">
-     </delete>
-     <mkdir dir="${class.root}" />
-     <copy todir="${class.root}">
-     <fileset dir="${source.root}">
-     <include name="**/*.properties" />
-     <include name="**/*.hbm.xml" />
-     <include name="**/*.cfg.xml" />
-     </fileset>
-     </copy>
-     </target>
-     <!-- hbm2java任务-->
-     <target name="codegen" depends="prepare">
-     <taskdef name="hbm2javaTask" classname="org.hibernate.tool.ant.HibernateToolTask" classpathref="project.class.path" />
-     <hbm2javaTask destdir="${source.root}">
-     <configuration configurationfile="C:\Users\yang\learn\test\src\main\resources\hibernate.cfg.xml" />
-     <hbm2java />
-     </hbm2javaTask>
-     </target>
-     <!--编译Java源文件 -->
-     <target name="compile" depends="codegen" description="Compiles all java classes">
-     <javac srcdir="${source.root}" destdir="${class.root}" debug="on" optimize="off" deprecation="on" includeAntRuntime="false">
-     <classpath refid="project.class.path">
-     </classpath>
-     </javac>
-     </target>
-     <!--hbm2ddl任务-->
-     <target name="schema" depends="compile">
-     <taskdef name="hbm2ddlTask" classname="org.hibernate.tool.ant.HibernateToolTask" classpathref="project.class.path">
-     </taskdef>
-     <hbm2ddlTask destdir="${schema.dir}">
-     <configuration configurationfile="${class.root}/hibernate.cfg.xml" />
-     <hbm2ddl export="true" console="true" create="true" drop="true" />
-     </hbm2ddlTask>
-     </target>
-     </project>
+<project name="test" default="hbm2java">
+ <!--定义文件夹-->
+ <property name="configuration-files.dir" value="src/main/resources" />
+ <property name="java.code.dir" value="src/main/java/Nentity" />
+ <property name="schema.dir" value="schema" />
+ <property name="lib.dir" value="lib" />
+ <property name="hibernate3.dir" value="${lib.dir}/" />
+
+ <path id="hibernate3.path">
+  <pathelement location="${hibernate3.dir}/hibernate-core-5.4.1.Final.jar" />
+  <fileset dir="${hibernate3.dir}">
+   <include name="org.hibernate.**/*.jar" />
+  </fileset>
+ </path>
+ <path id="mysql.jdbc.driver.path">
+  <pathelement location="${lib.dir}/mysql-connector-java-8.0.15.jar" />
+ </path>
+ <path id="hibernate-tools.path">
+  <pathelement location="${lib.dir}/hibernate-tools.jar" />
+ </path>
+ <path id="freemarker.path">
+  <pathelement location="${lib.dir}/freemarker-2.3.8.jar" />
+ </path>
+ <path id="all-in-one.path">
+  <path refid="hibernate3.path" />
+  <path refid="mysql.jdbc.driver.path" />
+  <path refid="hibernate-tools.path" />
+  <path refid="freemarker.path" />
+  <pathelement location="${configuration-files.dir}" />
+ </path>
+
+ <target name="hbm2java">
+  <taskdef name="hbm2java" classname="org.hibernate.tool.ant.HibernateToolTask"  classpathref="all-in-one.path" />
+  <hbm2java destdir="${java.code.dir}">
+   <configuration   configurationfile="${configuration-files.dir}/hibernate.cfg.xml" />
+   <jdk5>true</jdk5>
+
+  </hbm2java>
+ </target>
+ <target name="hbm2ddl">
+  <taskdef name="hbm2ddl" classname="org.hibernate.tool.ant.HibernateToolTask" classpathref="all-in-one.path" />
+  <hbm2ddl destdir="${schema.dir}">
+   <configuration configurationfile="${configuration-files.dir}/hibernate.cfg.xml" />
+   <hbm2ddl export="true" console="true" create="true" update="false" drop="false" outputfilename="courseChoosing.sql" />
+  </hbm2ddl>
+ </target>
+
+</project>

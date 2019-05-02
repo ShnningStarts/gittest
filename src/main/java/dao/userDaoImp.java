@@ -1,7 +1,5 @@
 package dao;
 
-import entity.user;
-
 import java.util.List;
 
 public class userDaoImp implements userDao {
