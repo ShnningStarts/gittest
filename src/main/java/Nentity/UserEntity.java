@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 import java.util.List;
 import Nentity.*;
 import javassist.SerialVersionUID;
-import
+
 
 @Entity
 @Table(name = "user", schema = "elet", catalog = "")
@@ -17,7 +17,7 @@ public class UserEntity<t> implements Serializable {
     private int userAge;
     private Timestamp userCreateTime;
     private String userEmail;
-    private byte userSex;
+    private byte userSex;s
     private Integer userTele;
     private Long userAddress;
     private List<AddressEntity> address;
@@ -133,7 +133,6 @@ UserEntity(Long id){userId=id;}
         this.userAddress = userAddress;
     }
 
-    public List<entity.GoodsEntity>(){}
 
     @Override
     public boolean equals(Object o) {

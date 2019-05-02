@@ -96,7 +96,7 @@ GoodsEntity(Integer id){goodsId=id;}
     }
 
     @Override
-    public Integer hashCode() {
+    public int hashCode() {
         Integer result = goodsId;
         result = 31 * result + goodsCategoryId;
         result = 31 * result + (goodsName != null ? goodsName.hashCode() : 0);
