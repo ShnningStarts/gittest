@@ -1,4 +1,6 @@
-package entity;
+package Nentity;
+
+import javassist.SerialVersionUID;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -6,6 +8,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "address", schema = "elet", catalog = "")
 public class AddressEntity implements Serializable {
+    public static final long SerialVersionUID=1l;
     private long addressId;
     private String addressNation;
     private String addressProvice;
@@ -118,5 +121,10 @@ public class AddressEntity implements Serializable {
         result = 31 * result + (addressDetail != null ? addressDetail.hashCode() : 0);
         result = 31 * result + (int) (addressUserId ^ (addressUserId >>> 32));
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

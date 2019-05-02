@@ -1,4 +1,6 @@
-package entity;
+package Nentity;
+
+import javassist.SerialVersionUID;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -6,6 +8,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "goods", schema = "elet", catalog = "")
 public class GoodsEntity implements Serializable {
+    public static final  long SerialVersionUID=1l;
     private Integer goodsId;
     private Integer goodsCategoryId;
     private String goodsName;

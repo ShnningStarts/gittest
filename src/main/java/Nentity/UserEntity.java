@@ -1,21 +1,31 @@
-package entity;
+package Nentity;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
+import Nentity.*;
+import javassist.SerialVersionUID;
+import
 
 @Entity
 @Table(name = "user", schema = "elet", catalog = "")
-public class UserEntity implements Serializable {
-    private long userId;
+public class UserEntity<t> implements Serializable {
+    public static final long SerialVersionUID=1l;
+    private Long userId;
     private String userName;
     private int userAge;
     private Timestamp userCreateTime;
     private String userEmail;
     private byte userSex;
-    private int userTele;
-    private long userAddress;
+    private Integer userTele;
+    private Long userAddress;
+    private List<AddressEntity> address;
+    @Transient
+    private List<GoodsEntity> goods;
+    @Transient
+    private List<OrdersEntity> orders;
+
 UserEntity(){}
 UserEntity(Long id){userId=id;}
     @Id
@@ -23,6 +33,31 @@ UserEntity(Long id){userId=id;}
     public long getUserId() {
         return userId;
     }
+
+    public List<AddressEntity> getAddress() {
+        return address;
+    }
+
+    public List<GoodsEntity> getGoods() {
+        return goods;
+    }
+
+    public List<OrdersEntity> getOrders() {
+        return orders;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public void setUserAddress(Long userAddress) {
+        this.userAddress = userAddress;
+    }
+
+    public void setAddress(List<AddressEntity> address) {
+        this.address = address;
+    }
+
 
     private void setUserId(long userId) {
         this.userId = userId;

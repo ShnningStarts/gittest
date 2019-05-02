@@ -1,12 +1,16 @@
-package entity;
+package Nentity;
+
+import javassist.SerialVersionUID;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "orders", schema = "elet", catalog = "")
 public class OrdersEntity  implements Serializable {
+    public static final long SerialVersionUID=1l;
     private long ordersId;
     private long ordersSourceAddress;
     private long ordersDestinationAddress;
@@ -19,10 +23,39 @@ public class OrdersEntity  implements Serializable {
     private Timestamp ordersSenderMailTime;
     private Timestamp ordersSucceesTime;
     private int ordersMailPrice;
+    private AddressEntity ordersSource;
+    private AddressEntity destinatonAddress;
+    private List<GoodsEntity> goods;
+
     OrdersEntity(){}
     OrdersEntity(Long id){
         ordersId=id;
     }
+
+    public List<GoodsEntity> getGoods() {
+        return goods;
+    }
+
+    public AddressEntity getDestinatonAddress() {
+        return destinatonAddress;
+    }
+
+    public AddressEntity getOrdersSource() {
+        return ordersSource;
+    }
+
+    public void setDestinatonAddress(AddressEntity destinatonAddress) {
+        this.destinatonAddress = destinatonAddress;
+    }
+
+    public void setGoods(List<GoodsEntity> goods) {
+        this.goods = goods;
+    }
+
+    public void setOrdersSource(AddressEntity ordersSource) {
+        this.ordersSource = ordersSource;
+    }
+
 
     @Id
     @Column(name = "orders_id", nullable = false)
