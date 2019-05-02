@@ -17,7 +17,7 @@ public class UserEntity<t> implements Serializable {
     private int userAge;
     private Timestamp userCreateTime;
     private String userEmail;
-    private byte userSex;s
+    private byte userSex;
     private Integer userTele;
     private Long userAddress;
     private List<AddressEntity> address;
